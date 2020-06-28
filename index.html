@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/all.min.css" >
+
+    <title>Welcome back, Charlie</title>
+    <style>
+                
+        body {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+        }
+
+        .form-signin {
+        width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        margin: auto;
+        }
+        .form-signin .checkbox {
+        font-weight: 400;
+        }
+        .form-signin .form-control {
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+        }
+        .form-signin .form-control:focus {
+        z-index: 2;
+        }
+        .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        }
+        .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        }
+    </style>
+  </head>
+  <body>
+
+    <form class="form-signin" id="signin-form">
+        <div style="text-align:center;">
+            <h1>Welcome back, Charlie!</h1>
+            <i class="fas fa-4x fa-user-circle"></i> 
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        </div>
+        <label for="inputEmail" class="sr-only" >Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" disabled="disabled" value="char........@gmail.com">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required autofocus>
+        <div class="invalid-feedback">
+            Please provide the correct password
+          </div>
+        <p><a data-toggle="collapse" href="#passwordHint">Password Hint</a></p>
+        <div class="collapse" id="passwordHint">
+            <div style="margin:1em 0em;">
+                <p>Solve this anagram: <strong>eleven plus two</strong></p>
+                <p>Hint: The answer is mathematically equal to the anagram text.</p>
+            </div>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="button" id="signin">Sign in</button>
+      </form>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>
+        $('#signin').on('click', function(e) {
+            e.preventDefault();
+            var password = $('#inputPassword').val();
+            password = password.replace(/\s/g, '');
+            console.log(password, btoa(password));
+            if (btoa(password) == 'dHdlbHZlcGx1c29uZQ==') {
+                window.location.href='charlie1.html';
+            } else {
+                $('#inputPassword').val('');
+                $('#signin-form').addClass('was-validated');
+            }
+        });
+    </script>
+</body>
+</html>
